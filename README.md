@@ -14,49 +14,11 @@ ClawForage is a suite of [OpenClaw](https://github.com/openclaw) skills that mak
 
 ## 🧩 The Suite
 
-<table>
-<tr>
-<td width="33%" valign="top">
-
-### 🔧 Prompt Optimizer
-
-**Your agent improves itself.**
-
-Analyzes your conversation history weekly to find repeated patterns, failed tasks, and unused potential. Suggests `SOUL.md` improvements and recommends community skills — so your agent gets better at being *your* agent.
-
-```
-/clawforage-prompt-optimizer
-```
-
-</td>
-<td width="33%" valign="top">
-
-### 📰 Knowledge Harvester
-
-**Wake up to a smarter AI.**
-
-Runs overnight, reads trending articles in your domains via Google News RSS, and writes concise summaries into your agent's memory. Next time you ask a question — it already knows.
-
-```
-/clawforage-knowledge-harvester
-```
-
-</td>
-<td width="33%" valign="top">
-
-### 🔬 Research Agent
-
-**Deep expertise on autopilot.**
-
-Goes beyond headlines. Extracts entities, maps cross-article connections, tracks evolving stories, and generates structured domain intelligence reports. Turns scattered news into actionable insight.
-
-```
-/clawforage-research-agent
-```
-
-</td>
-</tr>
-</table>
+| Skill | What it does | Command |
+|-------|-------------|---------|
+| 🔧 **Prompt Optimizer** | Analyzes your conversations weekly, suggests `SOUL.md` improvements and skill recommendations | `/clawforage-prompt-optimizer` |
+| 📰 **Knowledge Harvester** | Fetches trending articles overnight via Google News RSS, writes summaries into agent memory | `/clawforage-knowledge-harvester` |
+| 🔬 **Research Agent** | Extracts entities, maps connections across articles, generates structured domain intelligence | `/clawforage-research-agent` |
 
 ---
 
