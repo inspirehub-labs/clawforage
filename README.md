@@ -63,10 +63,8 @@ Goes beyond headlines. Extracts entities, maps cross-article connections, tracks
 ## ⚡ Quick Start
 
 ```bash
-# Install from ClawHub
-openclaw skill install clawforage/prompt-optimizer
-openclaw skill install clawforage/knowledge-harvester
-openclaw skill install clawforage/research-agent
+# Install all skills from ClawHub
+openclaw skill install clawforage
 
 # Configure your domains of interest
 mkdir -p memory/clawforage

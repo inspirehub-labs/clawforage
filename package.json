@@ -8,6 +8,11 @@
     "type": "git",
     "url": "https://github.com/inspirehub-labs/clawforage"
   },
+  "skills": [
+    "skills/prompt-optimizer",
+    "skills/knowledge-harvester",
+    "skills/research-agent"
+  ],
   "keywords": [
     "openclaw",
     "ai-agent",
