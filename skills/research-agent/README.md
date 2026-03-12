@@ -1,59 +1,61 @@
 # 🔬 ClawForage Research Agent
 
-Deep domain research that goes beyond daily briefings — entity extraction, cross-article connections, and structured intelligence reports.
+### Turn scattered news into structured intelligence.
 
-## What It Does
+Goes beyond daily briefings — extracts entities, maps connections across articles, tracks evolving stories, and generates domain research reports that make you the smartest person in the room.
 
-Runs twice weekly (or on-demand) to analyze your harvested knowledge and produce domain research reports:
+---
 
-- **Entity extraction** — identifies companies, people, products, and technologies across articles
-- **Cross-article connections** — finds shared entities, evolving stories, and emerging patterns
-- **Domain reports** — synthesized intelligence with key developments, entity maps, and outlook
-- **Source quality management** — tiered source whitelists per domain
+## ✨ What It Does
 
-## Install
+| Feature | How it helps |
+|---------|-------------|
+| **Entity extraction** | Identifies companies, people, products, and technologies across your knowledge base |
+| **Connection mapping** | Finds shared entities across articles — reveals hidden relationships and patterns |
+| **Timeline tracking** | Chronological view of developments — see how stories evolve |
+| **Domain reports** | Synthesized intelligence with key developments, entity maps, and forward-looking outlook |
+| **Source management** | Tiered source whitelists so you know what to trust |
+
+## 🚀 Install
 
 ```bash
 openclaw skill install clawforage/research-agent
 ```
 
-## Prerequisites
-
-Requires the Knowledge Harvester to populate `memory/knowledge/` with articles first:
+**Prerequisite:** Requires the [Knowledge Harvester](../knowledge-harvester/) to populate articles first:
 ```bash
 openclaw skill install clawforage/knowledge-harvester
 ```
 
-## Setup
+## ⚙️ Usage
 
-1. Run the Knowledge Harvester to build your knowledge base
-2. Source whitelists are auto-created on first run, or create manually:
-```bash
-mkdir -p memory/clawforage/sources
-# Edit memory/clawforage/sources/{domain-slug}.md with trusted sources
-```
-
-3. Run manually or let the cron trigger:
+Runs automatically **Monday + Thursday at 4am**, or invoke anytime:
 ```
 /clawforage-research-agent
 ```
 
-## Requirements
+Source whitelists are auto-created on first run, or configure manually:
+```bash
+mkdir -p memory/clawforage/sources
+# Edit memory/clawforage/sources/{domain-slug}.md
+```
+
+## 📄 Output
+
+Domain reports saved to `memory/research/{domain}/report-{YYYY}-{WW}.md`, containing:
+
+- **Key Developments** — top stories synthesized into a narrative
+- **Entity Map** — who's who and what they're doing
+- **Connections** — cross-article patterns and evolving stories
+- **Outlook** — what to watch next
+
+## 📋 Requirements
 
 - `jq` — `brew install jq` or `apt install jq`
 - `bash` (v4+)
 - `grep` with extended regex support
 
-## Cost
+---
 
-~$0.10-0.30 per run. Uses your default model.
-
-## Output
-
-Domain reports saved to `memory/research/{domain}/report-{YYYY}-{WW}.md`. Reports include key developments, entity maps, cross-article connections, and forward-looking outlook.
-
-## Part of ClawForage
-
-Built by [InspireHub Labs](https://inspireehub.ai). See also:
-- [Prompt Optimizer](../prompt-optimizer/) — weekly agent self-improvement
-- [Knowledge Harvester](../knowledge-harvester/) — automated daily briefings
+**Part of [ClawForage](../../README.md)** — built by [InspireHub Labs](https://inspireehub.ai)
+| [Prompt Optimizer](../prompt-optimizer/) | [Knowledge Harvester](../knowledge-harvester/) |

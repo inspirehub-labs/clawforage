@@ -1,48 +1,51 @@
 # 🔧 ClawForage Prompt Optimizer
 
-Analyzes your conversation transcripts and suggests improvements to your agent configuration.
+### Your agent learns to be better at being *your* agent.
 
-## What It Does
+Analyzes your conversation transcripts and suggests improvements to your agent configuration — so you stop repeating yourself and start getting smarter responses.
 
-Runs weekly (or on-demand) to:
-- Find questions you ask repeatedly → suggests adding defaults to SOUL.md
-- Track which tools you use most → recommends relevant ClawHub skills
-- Identify task failures → suggests preventive measures
-- Summarize your AI spending → cost transparency
+---
 
-## Install
+## ✨ What It Does
+
+| Feature | How it helps |
+|---------|-------------|
+| **Pattern detection** | Finds questions you ask repeatedly → suggests adding defaults to `SOUL.md` |
+| **Tool analytics** | Tracks which tools you use most → recommends relevant ClawHub skills |
+| **Failure analysis** | Identifies where your agent struggles → suggests preventive measures |
+| **Usage insights** | Summarizes interaction stats → full transparency on how you use your AI |
+
+## 🚀 Install
 
 ```bash
 openclaw skill install clawforage/prompt-optimizer
 ```
 
-## Requirements
+## ⚙️ Usage
 
-- `jq` (JSON processor) — install via `brew install jq` or `apt install jq`
-- `bash` (v4+)
+Runs automatically every **Sunday at 3am**, or invoke anytime:
 
-## Schedule
-
-Default: Sunday 3am (weekly). Change via:
-```bash
-openclaw cron edit clawforage-prompt-optimizer --cron "0 9 * * 1"
-```
-
-Or run manually anytime:
 ```
 /clawforage-prompt-optimizer
 ```
 
-## Cost
+Customize the schedule:
+```bash
+openclaw cron edit clawforage-prompt-optimizer --cron "0 9 * * 1"
+```
 
-~$0.05–0.15 per run (depends on transcript volume). Uses your default model.
+## 📄 Output
 
-## Output
+Weekly reports saved to `memory/optimization/week-{N}.md`.
 
-Weekly reports saved to `memory/optimization/week-{N}.md`. Never modifies your SOUL.md — only suggests changes for your approval.
+> **Safe by design** — never modifies your `SOUL.md` or transcripts. Suggestions only, always awaiting your approval.
 
-## Part of ClawForage
+## 📋 Requirements
 
-Built by [InspireHub Labs](https://inspireehub.ai). See also:
-- [Knowledge Harvester](../knowledge-harvester/) — automated daily briefings
-- [Research Agent](../research-agent/) — domain-specific deep research
+- `jq` — `brew install jq` or `apt install jq`
+- `bash` (v4+)
+
+---
+
+**Part of [ClawForage](../../README.md)** — built by [InspireHub Labs](https://inspireehub.ai)
+| [Knowledge Harvester](../knowledge-harvester/) | [Research Agent](../research-agent/) |

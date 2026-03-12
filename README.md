@@ -1,49 +1,132 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/OpenClaw-Skills-blue?style=for-the-badge" alt="OpenClaw Skills" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Active" />
+</p>
+
 # 🦀 ClawForage
 
-**Your AI never stops learning.**
+### Your AI agent never stops learning.
 
-ClawForage is a suite of [OpenClaw](https://github.com/openclaw) skills that help your AI agent get smarter over time — by optimizing its own configuration, building knowledge during downtime, and becoming a domain expert in your areas of interest.
+ClawForage is a suite of [OpenClaw](https://github.com/openclaw) skills that make your AI agent **smarter every day** — by learning from your habits, building knowledge while you sleep, and becoming a domain expert in what matters to you.
 
-## Skills
+---
+
+## 🧩 The Suite
+
+<table>
+<tr>
+<td width="33%" valign="top">
 
 ### 🔧 Prompt Optimizer
-Analyzes your conversation history to find patterns, suggest configuration improvements, and recommend community skills. Runs weekly, costs less than $1/month.
 
-### 📰 Knowledge Harvester
-Automated daily briefings in your domains of interest. Wakes up at 2am, reads the news through licensed APIs, writes concise summaries into your agent's memory. ~$6-15/month.
+**Your agent improves itself.**
 
-### 🔬 Research Agent *(coming soon)*
-Continuous domain-specific research with knowledge graphs, source management, and deep expertise building.
+Analyzes your conversation history weekly to find repeated patterns, failed tasks, and unused potential. Suggests `SOUL.md` improvements and recommends community skills — so your agent gets better at being *your* agent.
 
-## Install
-
-```bash
-# Install individual skills from ClawHub
-openclaw skill install clawforage/prompt-optimizer
-openclaw skill install clawforage/knowledge-harvester
+```
+/clawforage-prompt-optimizer
 ```
 
-## Cost Transparency
+</td>
+<td width="33%" valign="top">
 
-Every ClawForage skill documents its estimated cost per run. No surprises.
+### 📰 Knowledge Harvester
 
-| Skill | Frequency | Est. Monthly Cost |
-|-------|-----------|-------------------|
-| Prompt Optimizer | Weekly | < $1 |
-| Knowledge Harvester | Daily | $6–15 |
-| Research Agent | Continuous | $10–30 |
+**Wake up to a smarter AI.**
 
-## Philosophy
+Runs overnight, reads trending articles in your domains via Google News RSS, and writes concise summaries into your agent's memory. Next time you ask a question — it already knows.
 
-- **Summaries, not copies** — we never store verbatim content, only AI-generated summaries
-- **Licensed sources only** — all content sourced through official APIs
-- **User control** — every automated task is opt-in and configurable
-- **Cost transparency** — you always know what you're spending
+```
+/clawforage-knowledge-harvester
+```
 
-## License
+</td>
+<td width="33%" valign="top">
+
+### 🔬 Research Agent
+
+**Deep expertise on autopilot.**
+
+Goes beyond headlines. Extracts entities, maps cross-article connections, tracks evolving stories, and generates structured domain intelligence reports. Turns scattered news into actionable insight.
+
+```
+/clawforage-research-agent
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# Install from ClawHub
+openclaw skill install clawforage/prompt-optimizer
+openclaw skill install clawforage/knowledge-harvester
+openclaw skill install clawforage/research-agent
+
+# Configure your domains of interest
+mkdir -p memory/clawforage
+cat > memory/clawforage/domains.md << 'EOF'
+# My Domains
+- AI agent frameworks
+- startup news Asia
+- renewable energy
+EOF
+```
+
+That's it. The skills run automatically on schedule, or invoke any of them on-demand.
+
+---
+
+## 🔄 How They Work Together
+
+```
+  📰 Knowledge Harvester          🔬 Research Agent           🔧 Prompt Optimizer
+  ─────────────────────          ──────────────────          ─────────────────────
+  Daily @ 2am                    Mon + Thu @ 4am             Sunday @ 3am
+  │                              │                           │
+  ├─ Fetch trending articles     ├─ Extract entities         ├─ Analyze transcripts
+  ├─ Summarize & deduplicate     ├─ Map connections          ├─ Find repeated patterns
+  └─ Store in memory/knowledge/  ├─ Build timeline           ├─ Suggest SOUL.md changes
+                │                └─ Generate domain report   └─ Recommend skills
+                │                         │                          │
+                └─────────────────────────┘                          │
+                         Feeds into                        Optimizes everything
+```
+
+---
+
+## 🛡️ Philosophy
+
+| Principle | What it means |
+|-----------|--------------|
+| **Summaries, not copies** | We never store verbatim content — only AI-generated summaries with source attribution |
+| **Licensed sources only** | All content sourced through public APIs (Google News RSS). No scraping. |
+| **User control** | Every automated task is opt-in, configurable, and transparently scheduled |
+| **Privacy first** | All data stays local. Domain interests are never shared externally |
+| **No API keys needed** | Works out of the box with zero configuration for data sources |
+
+---
+
+## 📋 Requirements
+
+- **OpenClaw** agent (with cron and memory support)
+- `jq` — `brew install jq` or `apt install jq`
+- `curl` — usually pre-installed
+- `bash` (v4+)
+
+---
+
+## 📄 License
 
 MIT
 
 ---
 
-Built by [InspireHub Labs](https://inspireehub.ai)
+<p align="center">
+  Built with 🧠 by <a href="https://inspireehub.ai">InspireHub Labs</a>
+</p>

@@ -1,26 +1,30 @@
 # 📰 ClawForage Knowledge Harvester
 
-Wake up to an AI that already read today's news in your domains.
+### Wake up to an AI that already read today's news.
 
-## What It Does
+Your agent fetches trending content overnight in your domains of interest, summarizes it, and stores it in memory — so next time you ask a question, it already knows the answer.
 
-Runs daily (default 2am) to:
-- Fetch trending articles from Google News RSS in your configured domains
-- Summarize each article into 100-200 words
-- Store summaries as Markdown in `memory/knowledge/` for automatic RAG indexing
-- Deduplicate to avoid re-processing known content
+---
 
-Next time you ask a question, your agent has fresh context to draw from.
+## ✨ What It Does
 
-## Install
+| Feature | How it helps |
+|---------|-------------|
+| **Automated fetching** | Pulls trending articles from Google News RSS — no API keys needed |
+| **Smart summaries** | Condenses each article into 100-200 words of key facts and implications |
+| **RAG-ready storage** | Drops Markdown into `memory/knowledge/` for automatic vector indexing |
+| **Deduplication** | Never re-processes articles you've already seen |
+| **Source attribution** | Every summary links back to the original source |
+
+## 🚀 Install
 
 ```bash
 openclaw skill install clawforage/knowledge-harvester
 ```
 
-## Setup
+## ⚙️ Setup
 
-1. Create your domain config:
+**1. Configure your domains:**
 ```bash
 mkdir -p memory/clawforage
 cat > memory/clawforage/domains.md << 'EOF'
@@ -31,31 +35,28 @@ cat > memory/clawforage/domains.md << 'EOF'
 EOF
 ```
 
-2. The harvester runs automatically at 2am daily, or invoke manually:
+**2. Run it:**
+
+Runs automatically every day at **2am**, or invoke anytime:
 ```
 /clawforage-knowledge-harvester
 ```
 
-## Requirements
+## 🛡️ Legal Safety
+
+- ✅ Uses Google News RSS (public, free, no scraping)
+- ✅ Stores summaries only — never reproduces source content
+- ✅ Always attributes source with URL
+- ✅ You control which domains to track
+
+## 📋 Requirements
 
 - `jq` — `brew install jq` or `apt install jq`
 - `curl` — usually pre-installed
 - `bash` (v4+)
-- No API keys required (uses Google News RSS)
+- **No API keys required**
 
-## Cost
+---
 
-~$0.02-0.05 per run (10 articles). Uses your default model.
-
-## Legal Safety
-
-- Uses Google News RSS (public, free, no scraping)
-- Stores summaries only — never reproduces source content
-- Always attributes source with URL
-- User controls which domains to track
-
-## Part of ClawForage
-
-Built by [InspireHub Labs](https://inspireehub.ai). See also:
-- [Prompt Optimizer](../prompt-optimizer/) — weekly agent self-improvement
-- [Research Agent](../research-agent/) — deep domain research
+**Part of [ClawForage](../../README.md)** — built by [InspireHub Labs](https://inspireehub.ai)
+| [Prompt Optimizer](../prompt-optimizer/) | [Research Agent](../research-agent/) |
