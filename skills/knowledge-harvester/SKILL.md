@@ -1,62 +1,112 @@
 ---
 name: clawforage-knowledge-harvester
-description: Automated daily briefings — crawls trending topics via licensed APIs, writes concise summaries into your agent's memory
+description: Daily automated briefings — fetches trending content via Google News RSS, summarizes into memory for RAG retrieval
 version: 0.1.0
-author: InspireHub Labs
-tags: [knowledge, rag, news, briefing, automation]
-estimated_cost_per_run: "$0.02–0.05 (10 articles/run)"
-cron: "0 2 * * *"  # Daily, 2am
-status: planned
+emoji: "📰"
+user-invocable: true
+metadata: {"openclaw":{"requires":{"bins":["jq","curl","bash"]}}}
 ---
 
 # Knowledge Harvester
 
-You are a knowledge curation agent. Your job is to fetch trending content in the user's domains of interest, summarize it, and store it in the agent's memory for future retrieval.
+You are a knowledge curation agent run by ClawForage. Your job: fetch trending content in the user's configured domains, summarize each article, and store summaries in memory for automatic RAG indexing.
 
-## What You Do
+## Step 1: Read Domain Configuration
 
-1. **Read user's domain config** from `memory/clawforage/domains.md`
-2. **Fetch trending content** using licensed APIs:
-   - NewsAPI (news articles)
-   - Google News RSS (free, no key required)
-   - ArXiv API (research papers, if academic domains configured)
-3. **For each article** (default: top 10 per domain):
-   - Summarize into 100-200 words capturing key facts, entities, and implications
-   - Extract date, source, URL, and domain tags
-   - Write to `memory/knowledge/YYYY-MM-DD-{slug}.md`
-4. **Never store verbatim content** — summaries only, always attribute the source
-5. **Deduplicate** — check existing files to avoid re-summarizing known topics
-
-## Domain Configuration
-
-Users configure domains in `memory/clawforage/domains.md`:
-
-```markdown
-# My Domains
-- AI agent frameworks
-- Singapore startup regulations
-- Sailing weather Marlborough Sounds
+```bash
+cat memory/clawforage/domains.md 2>/dev/null || echo "NO_DOMAINS"
 ```
 
-## Output Format
+If no domains file exists (output is "NO_DOMAINS"), create a default one:
+
+```bash
+mkdir -p memory/clawforage
+cp {baseDir}/templates/domains-example.md memory/clawforage/domains.md
+```
+
+Then inform the user they should edit `memory/clawforage/domains.md` with their interests and stop.
+
+## Step 2: Fetch Articles for Each Domain
+
+Parse the domains list:
+
+```bash
+bash {baseDir}/scripts/fetch-articles.sh --list-domains memory/clawforage/domains.md
+```
+
+For each domain returned, fetch articles:
+
+```bash
+bash {baseDir}/scripts/fetch-articles.sh "<domain_query>" | head -10
+```
+
+This outputs JSONL — one JSON object per article with title, url, date, description, source, and domain.
+
+## Step 3: Deduplicate
+
+Pipe each domain's articles through the dedup script to filter out already-harvested content:
+
+```bash
+bash {baseDir}/scripts/fetch-articles.sh "<domain>" | head -10 | bash {baseDir}/scripts/dedup-articles.sh memory/knowledge
+```
+
+## Step 4: Summarize and Write
+
+Create the output directory:
+
+```bash
+mkdir -p memory/knowledge
+```
+
+For each new article from the dedup output, parse its JSON fields and write a summary file.
+
+The slug should be the title in lowercase, spaces replaced with hyphens, special chars removed, max 50 chars.
+
+Save to `memory/knowledge/{DATE}-{slug}.md` using this format:
 
 ```markdown
 ---
-date: YYYY-MM-DD
-source: {publication name}
+date: {article date, YYYY-MM-DD format}
+source: {source publication}
 url: {original URL}
-domain: {matched domain}
+domain: {domain from config}
+harvested: {today's date}
 ---
 
-# {Topic Title}
+# {Article Title}
 
-{100-200 word summary of key facts and implications}
+{Your 100-200 word summary capturing key facts, named entities, and implications}
+
+**Key facts:** {comma-separated key points} **Impact:** {one sentence on relevance}
 ```
+
+Write the summary yourself based on the article's description field from the RSS feed. Capture:
+- Key facts and data points
+- Named entities (people, companies, products)
+- Why this matters (implications)
+
+## Step 5: Validate Output
+
+For each file written, validate it:
+
+```bash
+bash {baseDir}/scripts/validate-knowledge.sh memory/knowledge/{filename}.md
+```
+
+Fix any validation errors before finishing.
+
+## Step 6: Summary
+
+After processing all domains, output a brief summary:
+- How many domains processed
+- How many new articles harvested
+- How many skipped (duplicates)
 
 ## Constraints
 
-- Licensed APIs only — never scrape websites directly
-- Summaries only — never reproduce more than 10 consecutive words from source
-- Respect rate limits — max 100 API calls per run
-- Use cheapest available model for summarization
-- Always attribute sources with URL
+- **Licensed sources only**: Use Google News RSS — never scrape websites directly
+- **Summaries only**: Never reproduce more than 10 consecutive words from any source
+- **Always attribute**: Every article must have source and URL in frontmatter
+- **Rate limits**: Max 100 API calls per run, max 10 articles per domain
+- **Cheapest model**: Run on the cheapest available model for summarization
+- **Privacy**: Domain interests are personal — never share externally
