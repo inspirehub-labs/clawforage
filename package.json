@@ -1,0 +1,18 @@
+{
+  "name": "clawforage",
+  "version": "0.1.0",
+  "description": "OpenClaw skills suite — automated knowledge curation, prompt optimization, and domain research",
+  "author": "InspireHub Labs <hello@inspireehub.ai>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inspirehub-labs/clawforage"
+  },
+  "keywords": [
+    "openclaw",
+    "ai-agent",
+    "rag",
+    "knowledge-management",
+    "prompt-optimization"
+  ]
+}
