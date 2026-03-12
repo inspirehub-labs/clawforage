@@ -87,5 +87,5 @@ If validation fails, fix the missing sections and re-validate.
 - **Read-only**: Never modify transcripts, SOUL.md, or any existing files
 - **Suggestions only**: Present changes for user approval, never auto-apply
 - **Concise**: Max 500 words per report
-- **Cheap model**: This skill should run on the cheapest available model
+- **Model**: Uses your default configured model — no override needed
 - **Privacy**: Never include full message content in reports — summarize patterns only

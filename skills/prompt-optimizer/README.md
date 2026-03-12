@@ -35,7 +35,7 @@ Or run manually anytime:
 
 ## Cost
 
-~$0.05–0.15 per run (depends on transcript volume). Uses cheapest available model.
+~$0.05–0.15 per run (depends on transcript volume). Uses your default model.
 
 ## Output
 

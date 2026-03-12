@@ -45,7 +45,7 @@ EOF
 
 ## Cost
 
-~$0.02-0.05 per run (10 articles). Uses cheapest available model for summarization.
+~$0.02-0.05 per run (10 articles). Uses your default model.
 
 ## Legal Safety
 

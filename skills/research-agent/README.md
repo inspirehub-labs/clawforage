@@ -46,7 +46,7 @@ mkdir -p memory/clawforage/sources
 
 ## Cost
 
-~$0.10-0.30 per run. Uses mid-tier model for synthesis (benefits from stronger reasoning).
+~$0.10-0.30 per run. Uses your default model.
 
 ## Output
 

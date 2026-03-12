@@ -115,5 +115,5 @@ Fix any validation errors.
 - **Summaries only**: Never reproduce more than 10 words from any source
 - **Source attribution**: Always cite sources and trust tiers
 - **One domain per run**: Process domains sequentially, one report each
-- **Mid-tier model**: This skill benefits from a capable model for synthesis — use mid-tier (GPT-4o-mini or equivalent)
+- **Model**: Uses your default configured model — no override needed
 - **Same legal constraints**: As Knowledge Harvester — licensed APIs, summaries only

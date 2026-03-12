@@ -108,5 +108,5 @@ After processing all domains, output a brief summary:
 - **Summaries only**: Never reproduce more than 10 consecutive words from any source
 - **Always attribute**: Every article must have source and URL in frontmatter
 - **Rate limits**: Max 100 API calls per run, max 10 articles per domain
-- **Cheapest model**: Run on the cheapest available model for summarization
+- **Model**: Uses your default configured model — no override needed
 - **Privacy**: Domain interests are personal — never share externally
