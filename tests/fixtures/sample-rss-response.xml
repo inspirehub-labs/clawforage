@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>AI agent frameworks - Google News</title>
+    <link>https://news.google.com</link>
+    <description>Google News</description>
+    <item>
+      <title>LangChain v0.3 Released With Native MCP Support</title>
+      <link>https://example.com/langchain-v03-mcp</link>
+      <pubDate>Wed, 11 Mar 2026 10:00:00 GMT</pubDate>
+      <description>LangChain has released version 0.3 with native Model Context Protocol support, enabling seamless integration with OpenClaw and other agent frameworks.</description>
+      <source url="https://techcrunch.com">TechCrunch</source>
+    </item>
+    <item>
+      <title>CrewAI Raises $50M Series B for Multi-Agent Orchestration</title>
+      <link>https://example.com/crewai-series-b</link>
+      <pubDate>Tue, 10 Mar 2026 14:30:00 GMT</pubDate>
+      <description>CrewAI has closed a $50M Series B round led by Sequoia to expand its role-based multi-agent orchestration platform.</description>
+      <source url="https://venturebeat.com">VentureBeat</source>
+    </item>
+    <item>
+      <title>OpenAI Agents SDK Now Supports Tool Streaming</title>
+      <link>https://example.com/openai-agents-streaming</link>
+      <pubDate>Mon, 09 Mar 2026 09:15:00 GMT</pubDate>
+      <description>OpenAI updated its Agents SDK with tool streaming capabilities, reducing latency for complex multi-step agent workflows.</description>
+      <source url="https://openai.com/blog">OpenAI Blog</source>
+    </item>
+  </channel>
+</rss>
