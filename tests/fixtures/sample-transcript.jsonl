@@ -1,0 +1,16 @@
+{"type":"message","timestamp":"2026-03-10T09:15:00Z","message":{"role":"user","content":[{"type":"text","text":"What's the weather in Hangzhou today?"}]}}
+{"type":"message","timestamp":"2026-03-10T09:15:05Z","message":{"role":"assistant","content":[{"type":"text","text":"The current weather in Hangzhou is 18°C with partly cloudy skies."}],"usage":{"cost":{"total":"0.003"}}}}
+{"type":"message","timestamp":"2026-03-10T10:30:00Z","message":{"role":"user","content":[{"type":"text","text":"Search for AI agent framework comparisons 2026"}]}}
+{"type":"message","timestamp":"2026-03-10T10:30:12Z","message":{"role":"assistant","content":[{"type":"toolUse","name":"web_search","input":{"query":"AI agent framework comparisons 2026"}},{"type":"text","text":"Here are the top AI agent frameworks in 2026..."}],"usage":{"cost":{"total":"0.008"}}}}
+{"type":"message","timestamp":"2026-03-10T14:00:00Z","message":{"role":"user","content":[{"type":"text","text":"What's the weather in Hangzhou today?"}]}}
+{"type":"message","timestamp":"2026-03-10T14:00:04Z","message":{"role":"assistant","content":[{"type":"text","text":"Currently 21°C and sunny in Hangzhou."}],"usage":{"cost":{"total":"0.003"}}}}
+{"type":"message","timestamp":"2026-03-11T08:00:00Z","message":{"role":"user","content":[{"type":"text","text":"Help me write a Python script to scrape product prices"}]}}
+{"type":"message","timestamp":"2026-03-11T08:00:30Z","message":{"role":"assistant","content":[{"type":"toolUse","name":"system.run","input":{"command":"python3 scraper.py"}},{"type":"text","text":"I encountered an error: ModuleNotFoundError: No module named 'beautifulsoup4'. Let me try installing it..."}],"usage":{"cost":{"total":"0.012"}}}}
+{"type":"message","timestamp":"2026-03-11T08:01:00Z","message":{"role":"user","content":[{"type":"text","text":"Help me write a Python script to scrape product prices"}]}}
+{"type":"message","timestamp":"2026-03-11T08:01:15Z","message":{"role":"assistant","content":[{"type":"toolUse","name":"system.run","input":{"command":"pip install beautifulsoup4 && python3 scraper.py"}},{"type":"text","text":"Successfully scraped 45 products with prices."}],"usage":{"cost":{"total":"0.015"}}}}
+{"type":"message","timestamp":"2026-03-11T11:00:00Z","message":{"role":"user","content":[{"type":"text","text":"Search for AI agent framework comparisons 2026"}]}}
+{"type":"message","timestamp":"2026-03-11T11:00:10Z","message":{"role":"assistant","content":[{"type":"text","text":"Based on the latest comparisons of AI agent frameworks..."}],"usage":{"cost":{"total":"0.007"}}}}
+{"type":"message","timestamp":"2026-03-12T09:00:00Z","message":{"role":"user","content":[{"type":"text","text":"What's the weather in Hangzhou today?"}]}}
+{"type":"message","timestamp":"2026-03-12T09:00:03Z","message":{"role":"assistant","content":[{"type":"text","text":"Hangzhou weather: 16°C, light rain expected this afternoon."}],"usage":{"cost":{"total":"0.003"}}}}
+{"type":"message","timestamp":"2026-03-12T15:00:00Z","message":{"role":"user","content":[{"type":"text","text":"Translate this document from Chinese to English"}]}}
+{"type":"message","timestamp":"2026-03-12T15:00:20Z","message":{"role":"assistant","content":[{"type":"text","text":"Here is the translated document..."}],"usage":{"cost":{"total":"0.025"}}}}
