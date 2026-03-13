@@ -16,7 +16,7 @@ ClawForage is a suite of [OpenClaw](https://github.com/openclaw) skills that mak
 
 | Skill | What it does | Command |
 |-------|-------------|---------|
-| 🔧 **Prompt Optimizer** | Analyzes your conversations weekly, suggests `SOUL.md` improvements and skill recommendations | `/clawforage-prompt-optimizer` |
+| 🔧 **Prompt Optimizer** | Analyzes your conversations daily, suggests `SOUL.md` improvements and skill recommendations | `/clawforage-prompt-optimizer` |
 | 📰 **Knowledge Harvester** | Fetches trending articles overnight via Google News RSS, writes summaries into agent memory | `/clawforage-knowledge-harvester` |
 | 🔬 **Research Agent** | Extracts entities, maps connections across articles, generates structured domain intelligence | `/clawforage-research-agent` |
 
@@ -47,7 +47,7 @@ That's it. The skills run automatically on schedule, or invoke any of them on-de
 ```
   📰 Knowledge Harvester          🔬 Research Agent           🔧 Prompt Optimizer
   ─────────────────────          ──────────────────          ─────────────────────
-  Daily @ 2am                    Mon + Thu @ 4am             Sunday @ 3am
+  Daily @ 2am                    Mon + Thu @ 4am             Daily @ 6am
   │                              │                           │
   ├─ Fetch trending articles     ├─ Extract entities         ├─ Analyze transcripts
   ├─ Summarize & deduplicate     ├─ Map connections          ├─ Find repeated patterns

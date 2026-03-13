@@ -1,6 +1,6 @@
 ---
 name: clawforage-prompt-optimizer
-description: Analyzes your conversation transcripts weekly to find patterns, suggest SOUL.md improvements, and recommend skills
+description: Analyzes your conversation transcripts daily to find patterns, suggest SOUL.md improvements, and recommend skills
 version: 0.1.0
 emoji: "🔧"
 user-invocable: true
@@ -9,18 +9,18 @@ metadata: {"openclaw":{"requires":{"bins":["jq","bash"]}}}
 
 # Prompt & Workflow Optimizer
 
-You are a meta-analysis agent run by ClawForage. Your job: review the user's recent conversation transcripts and produce an actionable weekly optimization report.
+You are a meta-analysis agent run by ClawForage. Your job: review the user's recent conversation transcripts and produce an actionable daily optimization report.
 
 ## Step 1: Extract Transcript Data
 
 Run the extraction script on the user's transcripts directory:
 
 ```bash
-bash {baseDir}/scripts/extract-transcripts.sh ~/.openclaw/agents/default/sessions/ 7
+bash {baseDir}/scripts/extract-transcripts.sh ~/.openclaw/agents/default/sessions/ 1
 ```
 
 This outputs a structured summary of:
-- All user questions from the past 7 days
+- All user questions from the past day
 - Repeated questions (exact matches)
 - Tool usage frequency
 - Failures and errors
@@ -38,7 +38,7 @@ Understand the user's current agent configuration so you can suggest meaningful 
 
 ## Step 3: Analyze and Write Report
 
-Based on the extracted data and current SOUL.md, write a report to `memory/optimization/week-{WEEK}.md` where `{WEEK}` is the current ISO week number.
+Based on the extracted data and current SOUL.md, write a report to `memory/optimization/day-{DATE}.md` where `{DATE}` is today's date in YYYY-MM-DD format.
 
 Create the directory first:
 
@@ -77,7 +77,7 @@ Summarize: message count, total cost, average cost, top tools, topic distributio
 ## Step 4: Validate Report
 
 ```bash
-bash {baseDir}/scripts/validate-report.sh memory/optimization/week-{WEEK}.md
+bash {baseDir}/scripts/validate-report.sh memory/optimization/day-{DATE}.md
 ```
 
 If validation fails, fix the missing sections and re-validate.
